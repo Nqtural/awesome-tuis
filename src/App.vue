@@ -3,9 +3,9 @@ import { ref, onMounted } from "vue";
 import Navbar from "./Navbar.vue";
 import Spinner from "./Spinner.vue";
 import Parser from "./js/parser.js";
+import { store } from "./js/store.js";
 
 const loading = ref(false);
-const parsedData = ref(null);
 
 async function main() {
 	loading.value = true;
@@ -14,27 +14,22 @@ async function main() {
 	await new Promise((resolve) => setTimeout(resolve, 0));
 
 	const parser = new Parser();
-	parsedData.value = await parser.parse();
+	store.setParsedData(await parser.parse());
 
 	loading.value = false;
 }
 
-onMounted(() => main());
+onMounted(() => {
+	if (!store.parsedData) {
+		main();
+	}
+});
 </script>
 
 <template>
 	<Navbar />
-	<header>
-		<h1>Awesome TUIs</h1>
-	</header>
-	<main>
-		<Spinner :model-value="loading" />
-
-		<div v-if="!loading">
-			<pre>{{ parsedData }}</pre>
-		</div>
-	</main>
-	<footer></footer>
+	<router-view v-if="!loading || store.parsedData"></router-view>
+	<Spinner v-else :model-value="loading" />
 </template>
 
 <style>
