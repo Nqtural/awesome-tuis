@@ -35,6 +35,10 @@ nav {
 	background: var(--background-secondary);
 	height: 6rem;
 	font-family: "SauceCodePro NF", monospace;
+	position: absolute;
+	width: 100vw;
+	top: 0;
+	box-sizing: border-box;
 }
 
 .links-wrapper span {
@@ -137,9 +141,6 @@ li a:hover::after {
 @media (max-width: 40rem) {
 	nav {
 		position: fixed;
-		width: 100vw;
-		top: 0;
-		box-sizing: border-box;
 	}
 
 	.menu-icon {

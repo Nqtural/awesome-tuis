@@ -36,6 +36,8 @@ onMounted(() => {
 @import "./css/colors.css";
 
 body {
+	/* make space for navbar */
+	padding-top: 6rem;
 	font-family: system-ui, sans-serif;
 	margin: 0;
 	background: var(--background);
