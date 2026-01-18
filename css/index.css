@@ -1,8 +1,0 @@
-@import "colors.css";
-@import "spinner.css";
-
-body {
-	margin: 0;
-	background: var(--background);
-	color: var(--text);
-}

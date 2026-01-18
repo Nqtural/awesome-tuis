@@ -1,11 +1,46 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted } from "vue";
+import Spinner from "./Spinner.vue";
+import Parser from "./js/parser.js";
+
+const loading = ref(false);
+const parsedData = ref(null);
+
+async function main() {
+  loading.value = true;
+
+  await new Promise(requestAnimationFrame);
+  await new Promise((resolve) => setTimeout(resolve, 0));
+
+  const parser = new Parser();
+  parsedData.value = await parser.parse();
+
+  loading.value = false;
+}
+
+onMounted(() => main());
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <header>
+    <h1>Awesome TUIs</h1>
+  </header>
+  <main>
+    <Spinner :model-value="loading" />
+
+    <div v-if="!loading">
+      <pre>{{ parsedData }}</pre>
+    </div>
+  </main>
+  <footer></footer>
 </template>
 
-<style scoped></style>
+<style>
+@import "./css/colors.css";
+
+body {
+	margin: 0;
+	background: var(--background);
+	color: var(--text);
+}
+</style>

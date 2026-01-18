@@ -1,7 +1,8 @@
+import readmeUrl from "/README.md?url";
 
 export default class Parser {
 	constructor() {
-		this.file_path = "/README.md";
+		this.file_path = readmeUrl;
 	}
 
 	async parse() {
@@ -11,6 +12,7 @@ export default class Parser {
 
 			this.markdown_file = await response.text();
 			this.toJSON();
+
 			return this.json;
 		} catch (error) {
 			console.error('Error fetching README:', error);
@@ -48,4 +50,8 @@ export default class Parser {
 
 		this.json = { categories };
 	}
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
