@@ -1,5 +1,5 @@
 <script setup>
-	import { ref, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import Spinner from "./Spinner.vue";
 import Parser from "./js/parser.js";
 
@@ -7,15 +7,15 @@ const loading = ref(false);
 const parsedData = ref(null);
 
 async function main() {
-  loading.value = true;
+	loading.value = true;
 
-  await new Promise(requestAnimationFrame);
-  await new Promise((resolve) => setTimeout(resolve, 0));
+	await new Promise(requestAnimationFrame);
+	await new Promise((resolve) => setTimeout(resolve, 0));
 
-  const parser = new Parser();
-  parsedData.value = await parser.parse();
+	const parser = new Parser();
+	parsedData.value = await parser.parse();
 
-  loading.value = false;
+	loading.value = false;
 }
 
 onMounted(() => main());
