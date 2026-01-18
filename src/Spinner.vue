@@ -1,10 +1,10 @@
 <script setup>
-import { ref, watch } from "vue";
+	import { ref, watch } from "vue";
 
 const props = defineProps({
   modelValue: {
-    type: Boolean,
-    default: false
+	type: Boolean,
+	default: false
   }
 });
 const visible = ref(props.modelValue);
@@ -12,17 +12,17 @@ const visible = ref(props.modelValue);
 watch(
   () => props.modelValue,
   (newVal) => {
-    visible.value = newVal;
+	visible.value = newVal;
   }
 );
 </script>
 
 <template>
-  <transition name="fade">
-    <div v-if="visible" id="spinner">
-      <div></div>
-    </div>
-  </transition>
+	<transition name="fade">
+	<div v-if="visible" id="spinner">
+		<div></div>
+	</div>
+	</transition>
 </template>
 
 <style scoped>
@@ -45,23 +45,23 @@ watch(
 	animation: spin 0.8s linear infinite;
 }
 
-@keyframes spin {
-	100% {
-		transform: rotate(360deg);
+	@keyframes spin {
+		100% {
+			transform: rotate(360deg);
+		}
 	}
-}
 
-/* Vue transition classes for fade in/out */
-.fade-enter-active,
-.fade-leave-active {
-	transition: opacity 0.3s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-	opacity: 0;
-}
-.fade-enter-to,
-.fade-leave-from {
-	opacity: 1;
-}
+	/* Vue transition classes for fade in/out */
+	.fade-enter-active,
+	.fade-leave-active {
+		transition: opacity 0.3s ease;
+	}
+	.fade-enter-from,
+	.fade-leave-to {
+		opacity: 0;
+	}
+	.fade-enter-to,
+	.fade-leave-from {
+		opacity: 1;
+	}
 </style>

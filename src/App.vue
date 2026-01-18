@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+	import { ref, onMounted } from "vue";
 import Spinner from "./Spinner.vue";
 import Parser from "./js/parser.js";
 
@@ -22,17 +22,17 @@ onMounted(() => main());
 </script>
 
 <template>
-  <header>
-    <h1>Awesome TUIs</h1>
-  </header>
-  <main>
-    <Spinner :model-value="loading" />
+	<header>
+		<h1>Awesome TUIs</h1>
+	</header>
+	<main>
+		<Spinner :model-value="loading" />
 
-    <div v-if="!loading">
-      <pre>{{ parsedData }}</pre>
-    </div>
-  </main>
-  <footer></footer>
+		<div v-if="!loading">
+			<pre>{{ parsedData }}</pre>
+		</div>
+	</main>
+	<footer></footer>
 </template>
 
 <style>
