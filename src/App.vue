@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import Navbar from "./Navbar.vue";
 import Spinner from "./Spinner.vue";
 import Parser from "./js/parser.js";
 
@@ -22,6 +23,7 @@ onMounted(() => main());
 </script>
 
 <template>
+	<Navbar />
 	<header>
 		<h1>Awesome TUIs</h1>
 	</header>
@@ -39,6 +41,7 @@ onMounted(() => main());
 @import "./css/colors.css";
 
 body {
+	font-family: system-ui, sans-serif;
 	margin: 0;
 	background: var(--background);
 	color: var(--text);
