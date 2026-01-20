@@ -30,7 +30,7 @@ article {
 }
 
 article:hover {
-	transform: scale(1.05);
+	box-shadow: 0px 0px 10px 2px rgb(from var(--primary) r g b / 0.3);
 }
 
 article:hover a {

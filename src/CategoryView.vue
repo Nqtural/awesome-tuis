@@ -43,6 +43,5 @@ main {
 	min-width: 25rem;
 	max-width: 75rem;
 	padding: 2rem;
-	z-index: -1;
 }
 </style>
