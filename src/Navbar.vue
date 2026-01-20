@@ -32,12 +32,14 @@ nav {
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 1em;
-	background: var(--background-secondary);
+	background: var(--background);
+	border-bottom: 1px solid var(--primary);
 	height: 6rem;
 	font-family: "SauceCodePro NF", monospace;
 	position: absolute;
 	width: 100vw;
 	top: 0;
+	left: 0;
 	box-sizing: border-box;
 }
 
@@ -56,6 +58,7 @@ nav {
 	width: 2rem;
 	height: 1.5rem;
 	cursor: pointer;
+	padding: 0.5rem;
 	z-index: 10;
 }
 
