@@ -36,15 +36,6 @@ li + li::before {
 	margin: 0 2rem;
 }
 
-a {
-	color: var(--secondary);
-	transition: color 0.3s ease;
-}
-
-a:hover {
-	color: var(--accent);
-}
-
 @media (max-width: 40rem) {
 	ul {
 		flex-direction: column;

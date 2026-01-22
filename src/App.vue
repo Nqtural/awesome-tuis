@@ -54,4 +54,13 @@ body {
 	display: flex;
 	flex-direction: column;
 }
+
+a {
+	color: var(--secondary);
+	transition: color 0.3s ease;
+}
+
+a:hover {
+	color: var(--accent);
+}
 </style>

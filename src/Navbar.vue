@@ -99,6 +99,7 @@ a {
 	display: grid;
 	place-items: center;
 	white-space: nowrap;
+	transition: color 0s;
 }
 
 li a {
