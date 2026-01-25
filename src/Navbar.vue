@@ -1,3 +1,7 @@
+<script setup>
+import Sidebar from "./Sidebar.vue";
+</script>
+
 <template>
 	<nav>
 		<input id="menu-toggle" type="checkbox" />
@@ -19,6 +23,7 @@
 					<a href="/awesome-tuis/submit">Submit</a>
 				</li>
 			</ul>
+			<Sidebar />
 		</div>
 		<a class="brand" href="/awesome-tuis/">Awesome TUIs</a>
 	</nav>
@@ -45,6 +50,10 @@ nav {
 }
 
 .links-wrapper span {
+	display: none;
+}
+
+.links-wrapper aside {
 	display: none;
 }
 
@@ -174,10 +183,19 @@ li a:hover::after {
 		pointer-events: all;
 	}
 
+	#menu-toggle:checked ~ .sidebar-wrapper {
+		opacity: 1;
+		pointer-events: all;
+	}
+
 	.links-wrapper span {
 		display: block;
 		font-weight: bold;
 		font-size: 2.2em;
+	}
+
+	.links-wrapper aside {
+		display: block;
 	}
 
 	ul {
