@@ -56,6 +56,7 @@ main {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	height: fit-content;
 	gap: 3rem;
 	flex: 4;
 }
