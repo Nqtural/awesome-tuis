@@ -34,11 +34,7 @@ article:hover {
 }
 
 article:hover a {
-	color: var(--accent);
-}
-
-article:hover a::before {
-	opacity: 1;
+	color: var(--secondary);
 }
 
 h2 {
@@ -59,21 +55,27 @@ p {
 
 a {
 	color: var(--text-subtile);
-	text-decoration: none;
 	font-size: 0.75em;
 	width: fit-content;
 	align-self: end;
-	transition: color 0.3s ease;
-	padding: 0.5rem;
+	white-space: nowrap;
+	display: block;
+	padding: 0.25rem;
 }
 
 a::before {
 	content: ">";
+	display: inline-block;
+	margin-right: 0.5ch;
 	opacity: 0;
 	transition: opacity 0.3s ease;
 }
 
-a:hover {
-	text-decoration: underline;
+a:hover::before {
+	opacity: 1;
+}
+
+article a:hover {
+	color: var(--accent);
 }
 </style>
