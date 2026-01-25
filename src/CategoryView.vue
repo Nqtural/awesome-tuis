@@ -7,14 +7,14 @@ import CategoryItem from "./Item.vue";
 import Sidebar from "./Sidebar.vue";
 
 const route = useRoute();
-const categoryTitle = route.params.categoryTitle;
 
 defineProps({
 	categoryTitle: String
 });
 
 const category = computed(() => {
-	return store.parsedData?.categories.find(c => slugify(c.title) === categoryTitle);
+	const titleParam = route.params.categoryTitle; // always read from route
+	return store.parsedData?.categories.find(c => slugify(c.title) === titleParam);
 });
 </script>
 
