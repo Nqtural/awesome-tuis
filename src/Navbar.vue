@@ -14,18 +14,18 @@ import Sidebar from "./Sidebar.vue";
 			<span>Navigation</span>
 			<ul>
 				<li>
-					<a href="/awesome-tuis/">Home</a>
+					<a href="/">Home</a>
 				</li>
 				<li>
-					<a href="/awesome-tuis/about">About</a>
+					<a href="/about">About</a>
 				</li>
 				<li>
-					<a href="/awesome-tuis/submit">Submit</a>
+					<a href="/submit">Submit</a>
 				</li>
 			</ul>
 			<Sidebar />
 		</div>
-		<a class="brand" href="/awesome-tuis/">Awesome TUIs</a>
+		<a class="brand" href="/">Awesome TUIs</a>
 	</nav>
 </template>
 

@@ -8,7 +8,7 @@ import { slugify } from "./js/utils.js";
 		<span>Categories</span>
 		<ul>
 			<li v-for="category in store.parsedData?.categories || []" :key="category.title">
-				<router-link :to="`/awesome-tuis/category/${slugify(category.title)}`">{{ category.title }}</router-link>
+				<router-link :to="`/category/${slugify(category.title)}`">{{ category.title }}</router-link>
 			</li>
 		</ul>
 	</aside>

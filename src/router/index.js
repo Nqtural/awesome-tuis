@@ -5,14 +5,14 @@ import CategoryView from "../CategoryView.vue";
 import Submit from "../Submit.vue";
 
 const routes = [
-	{ path: "/awesome-tuis/", component: Home },
-	{ path: "/awesome-tuis/about", component: About },
-	{ path: "/awesome-tuis/category/:categoryTitle", component: CategoryView, props: true },
-	{ path: "/awesome-tuis/submit", component: Submit },
+	{ path: "/", component: Home },
+	{ path: "/about", component: About },
+	{ path: "/category/:categoryTitle", component: CategoryView, props: true },
+	{ path: "/submit", component: Submit },
 ];
 
 const router = createRouter({
-	history: createWebHistory(),
+	history: createWebHistory("/awesome-tuis/"),
 	routes
 });
 
