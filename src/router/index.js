@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "../Home.vue";
 import About from "../About.vue";
 import CategoryView from "../CategoryView.vue";
@@ -12,7 +12,7 @@ const routes = [
 ];
 
 const router = createRouter({
-	history: createWebHistory("/awesome-tuis/"),
+	history: createWebHashHistory(),
 	routes
 });
 
