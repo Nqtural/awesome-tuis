@@ -1,20 +1,32 @@
 <script setup>
+import { ref, computed } from "vue";
 import { store } from "./js/store.js";
 import { slugify } from "./js/utils.js";
 import { useRoute } from "vue-router";
-import { computed } from "vue";
 import CategoryItem from "./Item.vue";
+import ItemInfo from "./ItemInfo.vue";
 import Sidebar from "./Sidebar.vue";
 
 const route = useRoute();
 
-defineProps({
-	categoryTitle: String
-});
+const selectedItem = ref(null);
+const showPopup = ref(false);
+
+function openPopup(item) {
+	selectedItem.value = item;
+	showPopup.value = true;
+}
+
+function closePopup() {
+	showPopup.value = false;
+	selectedItem.value = null;
+}
 
 const category = computed(() => {
-	const titleParam = route.params.categoryTitle; // always read from route
-	return store.parsedData?.categories.find(c => slugify(c.title) === titleParam);
+	const titleParam = route.params.categoryTitle;
+	return store.parsedData?.categories.find(
+		c => slugify(c.title) === titleParam
+	);
 });
 </script>
 
@@ -29,6 +41,7 @@ const category = computed(() => {
 					v-for="item in category.items"
 					:key="item.name"
 					:item="item"
+					@select="openPopup"
 					/>
 			</template>
 			<p v-else>Category not found</p>
@@ -37,6 +50,11 @@ const category = computed(() => {
 			<Sidebar />
 		</div>
 	</div>
+	<ItemInfo
+			v-if="showPopup && selectedItem"
+			:item="selectedItem"
+			@close="closePopup"
+			/>
 </template>
 
 <style scoped>

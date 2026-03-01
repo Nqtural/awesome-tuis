@@ -1,17 +1,22 @@
 <script setup>
-defineProps({
+const props = defineProps({
 	item: {
 		type: Object,
 		required: true
 	}
 });
+
+const emit = defineEmits(["select"]);
+
+function handleClick() {
+	emit("select", props.item);
+}
 </script>
 
 <template>
-	<article>
+	<article @click="handleClick">
 		<h2>{{ item.name }}</h2>
 		<p>{{ item.description }}</p>
-		<a :href="item.link" target="_blank" rel="noopener">Source Code</a>
 	</article>
 </template>
 
@@ -31,10 +36,7 @@ article {
 
 article:hover {
 	box-shadow: 0px 0px 10px 2px rgb(from var(--primary) r g b / 0.3);
-}
-
-article:hover a {
-	color: var(--secondary);
+	cursor: pointer;
 }
 
 h2 {

@@ -174,7 +174,7 @@ li a:hover::after {
 		height: calc(100vh - 6rem);
 		width: 100vw;
 		left: 0;
-		background: #000000a5;
+		background: var(--backdrop);
 		transition: opacity 0.3s ease;
 	}
 

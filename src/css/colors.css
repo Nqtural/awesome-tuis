@@ -5,6 +5,7 @@ Colors generated using Realtime Colors (https://www.realtimecolors.com/)
 :root {
 	--text: #e3f0e3;
 	--text-subtile: #657365;
+	--backdrop: #000000a5;
 	--background: #040904;
 	--background-secondary: #0f140f;
 	--primary: #92de94;
