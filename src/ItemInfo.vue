@@ -1,44 +1,14 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import { getProgramImages } from "./js/load-image.js";
 
 const props = defineProps({ item: Object });
 const emit = defineEmits(["close"]);
 
-const exts = ["png", "gif", "jpeg", "jpg", "webp"];
-const imageList = ref([]);
-const maxImages = 20;
-
-function checkImage(url) {
-	return new Promise((resolve) => {
-		const img = new Image();
-		img.onload = () => resolve(url);
-		img.onerror = () => resolve(null);
-		img.src = url;
-	});
-}
+const images = ref([]);
 
 onMounted(async () => {
-	const validImages = [];
-
-	for (let i = 0; i < maxImages; i++) {
-		let foundForIndex = false;
-
-		for (const ext of exts) {
-			const url = `/awesome-tuis/assets/${props.item.name}/${i}.${ext}`;
-			const result = await checkImage(url);
-
-			if (result) {
-				validImages.push(result);
-				foundForIndex = true;
-			}
-		}
-
-		if (!foundForIndex) {
-			break;
-		}
-	}
-
-	imageList.value = validImages;
+	images.value = getProgramImages(props.item.name);
 });
 
 function close() {
@@ -55,11 +25,11 @@ function close() {
 			<a :href="item.link" target="_blank" rel="noopener">Source Code</a>
 			<p>{{ item.description }}</p>
 
-			<template v-if="imageList.length > 0">
+			<template v-if="images.length > 0">
 				<h3>Previews</h3>
 				<div class="image-gallery">
 					<img
-							v-for="(src, index) in imageList"
+							v-for="(src, index) in images"
 							:key="index"
 							:src="src"
 							:alt="`Preview of ${item.name} #${index+1}`"
