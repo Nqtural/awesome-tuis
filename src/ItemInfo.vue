@@ -25,17 +25,21 @@ function close() {
 			<a :href="item.link" target="_blank" rel="noopener">Source Code</a>
 			<p>{{ item.description }}</p>
 
-			<template v-if="images.length > 0">
-				<h3>Previews</h3>
-				<div class="image-gallery">
+			<h3>Previews</h3>
+			<div class="image-gallery">
+				<template v-if="images.length > 0">
 					<img
 							v-for="(src, index) in images"
 							:key="index"
 							:src="src"
 							:alt="`Preview of ${item.name} #${index+1}`"
 							/>
-				</div>
-			</template>
+				</template>
+				<template v-else>
+					<p class="smiley">:(</p>
+					<p>No images were found for this TUI.</p>
+				</template>
+			</div>
 		</div>
 	</div>
 </template>
@@ -54,7 +58,7 @@ function close() {
 .popup {
 	background: var(--background-secondary);
 	width: min(calc(100% - 4rem), 50rem);
-	max-height: min(calc(100% - 6rem - 2rem), 35rem);
+	height: min(calc(100% - 6rem - 2rem), 35rem);
 	position: relative;
 	overflow: hidden;
 	border-radius: 1rem;
@@ -87,6 +91,10 @@ h2 {
 	margin-bottom: 0.5rem;
 }
 
+h3 {
+	margin-top: 2rem;
+}
+
 p {
 	margin: 2rem 0;
 }
@@ -96,5 +104,13 @@ p {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+}
+
+.image-gallery p {
+	margin: auto;
+}
+
+.smiley {
+	font-size: 5rem;
 }
 </style>
