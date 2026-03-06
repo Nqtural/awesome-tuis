@@ -2,7 +2,7 @@
 	<footer>
 		<ul>
 			<li>© 2026 The Awesome TUIs Contributors</li>
-			<li>Source code on <a href="https://github.com/rothgar/awesome-tuis">GitHub</a></li>
+			<li>Source code on <a href="https://github.com/rothgar/awesome-tuis">Github</a></li>
 		</ul>
 	</footer>
 </template>

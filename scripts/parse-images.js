@@ -14,7 +14,7 @@ for (const program of programs) {
 	if (!fs.statSync(programPath).isDirectory()) continue
 
 	const files = fs.readdirSync(programPath)
-		.filter(f => /\.(png|gif|jpg|webp)$/i.test(f))
+		.filter(f => /\.(png|gif|jpg|jpeg|webp)$/i.test(f))
 
 	result[program] = files
 }

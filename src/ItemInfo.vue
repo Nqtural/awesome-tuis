@@ -38,6 +38,7 @@ function close() {
 				<template v-else>
 					<p class="smiley">:(</p>
 					<p>No images were found for this TUI.</p>
+					<a href="/awesome-tuis/#/submit">Submit an image</a>
 				</template>
 			</div>
 		</div>
